@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'sudo docker run node:16.13.1-alpine'
+                sh 'docker run node:16.13.1-alpine'
             }
         }
     }
