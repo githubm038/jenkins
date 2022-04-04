@@ -1,1 +1,1 @@
-echo "hello from github using webhooks!!!"
+echo "hello from github using webhooks!"
