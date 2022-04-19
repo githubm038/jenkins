@@ -1,9 +1,17 @@
 name: Trigger jenkins job
-uses: jabbukka/jenkins-trigger@main
-with:
- url: ${{http://localhost:8071/ }}
-  job_name: "test"
-  user_name: ${{ test }}
-  api_token: ${{ 1140a8ab94d3c044d99653b873c8ebc86d }}
-  wait: "true"
-  timeout: "1000"
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+   runs-on: windows-latest
+    uses: jabbukka/jenkins-trigger@main
+    with:
+      url: ${{http://localhost:8071/ }}
+      job_name: "test"
+      user_name: ${{ test }}
+      api_token: ${{ 1140a8ab94d3c044d99653b873c8ebc86d }}
+      wait: "true"
+      timeout: "1000"
