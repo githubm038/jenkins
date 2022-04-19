@@ -1,17 +1,24 @@
-name: Trigger jenkins job
+name: Test Jenkins Action
+
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+
+
 jobs:
-  build:
-   runs-on: windows-latest
-    uses: jabbukka/jenkins-trigger@main
-    with:
-      url: ${{http://localhost:8071/ }}
-      job_name: "test"
-      user_name: ${{ test }}
-      api_token: ${{ 1140a8ab94d3c044d99653b873c8ebc86d }}
-      wait: "true"
-      timeout: "1000"
+
+  testaction:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - id: testjenkinsaction
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
+        with:
+          jenkins-server: http://localhost:8071/
+          jenkins-job: test
+          jenkins-username: Test
+          jenkins-pat: 1140a8ab94d3c044d99653b873c8ebc86d
+          poll-time: 100
+          timeout-value: 100
+          verbose: true
