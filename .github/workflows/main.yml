@@ -12,13 +12,13 @@ jobs:
     
     steps:
       
-      - id: testjenkinsaction
+      - id: "${{ testjenkinsaction }}"
         uses: mickeygoussetorg/trigger-jenkins-job@v1
         with:
           jenkins-server: http://localhost:8071/
-          jenkins-job: test
-          jenkins-username: Test
-          jenkins-pat: 1140a8ab94d3c044d99653b873c8ebc86d
-          poll-time: 100
-          timeout-value: 100
+          jenkins-job: "test"
+          jenkins-username: ${{ Test }} 
+          jenkins-pat: ${{ 117908777c6b77e4b6a0f9ee975a6c0396 }}
+          poll-time: 10
+          timeout-value: 600
           verbose: true
