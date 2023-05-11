@@ -1,1 +1,6 @@
-
+version: '3'
+services:
+  my_ubuntu:
+    image: ubuntu
+    container_name: my_ubuntu_container
+    command: bash -c "echo 'Hello World'"
